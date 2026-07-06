@@ -28,11 +28,77 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
-    background: var(--bg);
+    background:
+      linear-gradient(160deg, #06080e 0%, #0f1520 50%, #291d09 78%, #3b2200 100%);
+    background-attachment: fixed;
+    background-size: cover;
     color: var(--text);
     font-family: 'Inter', sans-serif;
     font-size: 15px;
     line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* Fixed runner */
+  #fixed-runner {
+    position: fixed;
+    bottom: 0;
+    right: 4%;
+    height: 30vh;
+    max-height: 280px;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.75;
+  }
+
+  /* Fixed gold horizon glow */
+  #fixed-glow {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 35vh;
+    background: radial-gradient(ellipse 80% 60% at 50% 100%, rgba(201,149,44,0.35) 0%, rgba(201,149,44,0.08) 50%, transparent 100%);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* Fixed treeline */
+  #fixed-treeline {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.95;
+  }
+
+  /* Content needs to sit above fixed elements */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .hero, .container, footer {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Semi-transparent cards so content readable over sky */
+  .card-bg {
+    background: rgba(15, 17, 23, 0.82) !important;
+    backdrop-filter: blur(4px);
+  }
+
+  section {
+    background: rgba(10, 12, 18, 0.75);
+    backdrop-filter: blur(2px);
+    border-radius: 0;
+    padding: 3rem 0 1rem;
+    border-top: 1px solid var(--border);
+    margin-top: 0;
   }
 
   /* NAV */
@@ -679,81 +745,25 @@
   </div>
 </nav>
 
+<!-- Fixed background elements -->
+<div id="fixed-glow"></div>
+<svg id="fixed-treeline" viewBox="0 0 1440 120" preserveAspectRatio="none" style="height:12vh;max-height:110px;" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 80 L40 80 L40 55 L65 55 L65 40 L88 40 L88 55 L110 55 L110 32 L135 32 L135 58 L158 58 L158 42 L182 42 L182 52 L206 52 L206 30 L228 30 L228 50 L254 50 L254 38 L278 38 L278 50 L304 50 L304 28 L328 28 L328 48 L354 48 L354 58 L378 58 L378 38 L404 38 L404 52 L430 52 L430 28 L456 28 L456 45 L482 45 L482 55 L508 55 L508 38 L534 38 L534 50 L560 50 L560 30 L586 30 L586 48 L612 48 L612 38 L638 38 L638 52 L665 52 L665 30 L690 30 L690 45 L718 45 L718 58 L744 58 L744 38 L770 38 L770 52 L798 52 L798 30 L824 30 L824 48 L850 48 L850 40 L876 40 L876 55 L904 55 L904 32 L930 32 L930 50 L958 50 L958 42 L984 42 L984 52 L1010 52 L1010 28 L1036 28 L1036 48 L1062 48 L1062 38 L1088 38 L1088 55 L1114 55 L1114 30 L1140 30 L1140 50 L1166 50 L1166 40 L1192 40 L1192 55 L1218 55 L1218 35 L1244 35 L1244 52 L1270 52 L1270 42 L1296 42 L1296 58 L1322 58 L1322 38 L1348 38 L1348 50 L1374 50 L1374 45 L1400 45 L1400 60 L1440 60 L1440 120 L0 120 Z" fill="#0c0d17"/>
+</svg>
+<img id="fixed-runner" src="data:image/png;base64,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" alt="Runner silhouette">
+
+
 <!-- HERO -->
-<div class="hero" style="position:relative;overflow:hidden;min-height:340px;padding:0;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;">
-
-  <!-- Dawn sky SVG background -->
-  <svg style="position:absolute;inset:0;width:100%;height:100%;z-index:0;" viewBox="0 0 900 340" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="dSky" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#06080e"/>
-        <stop offset="50%" stop-color="#0f1520"/>
-        <stop offset="76%" stop-color="#291d09"/>
-        <stop offset="100%" stop-color="#3b2200"/>
-      </linearGradient>
-      <radialGradient id="dBurst" cx="50%" cy="100%" r="75%">
-        <stop offset="0%" stop-color="#C9952C" stop-opacity="0.6"/>
-        <stop offset="40%" stop-color="#C9952C" stop-opacity="0.18"/>
-        <stop offset="100%" stop-color="#C9952C" stop-opacity="0"/>
-      </radialGradient>
-      <linearGradient id="horizFadeLeft" x1="0" y1="0" x2="1" y2="0">
-        <stop offset="0%" stop-color="#0f1520" stop-opacity="1"/>
-        <stop offset="18%" stop-color="#0f1520" stop-opacity="0"/>
-      </linearGradient>
-      <linearGradient id="dHoriz" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#C9952C" stop-opacity="0.95"/>
-        <stop offset="60%" stop-color="#C9952C" stop-opacity="0.3"/>
-        <stop offset="100%" stop-color="#C9952C" stop-opacity="0"/>
-      </linearGradient>
-    </defs>
-    <rect width="900" height="340" fill="url(#dSky)"/>
-    <rect width="900" height="340" fill="url(#dBurst)"/>
-    <rect x="0" y="238" width="900" height="44" fill="url(#dHoriz)" opacity="0.85"/>
-    <rect x="0" y="235" width="900" height="50" fill="url(#horizFadeLeft)"/>
-    <circle cx="80" cy="28" r="1.3" fill="#e2e8f0" opacity="0.7"/>
-    <circle cx="175" cy="14" r="1.0" fill="#e2e8f0" opacity="0.55"/>
-    <circle cx="270" cy="40" r="1.2" fill="#e2e8f0" opacity="0.6"/>
-    <circle cx="380" cy="12" r="0.9" fill="#e2e8f0" opacity="0.45"/>
-    <circle cx="480" cy="28" r="1.3" fill="#e2e8f0" opacity="0.7"/>
-    <circle cx="580" cy="10" r="1.0" fill="#e2e8f0" opacity="0.5"/>
-    <circle cx="680" cy="34" r="1.1" fill="#e2e8f0" opacity="0.6"/>
-    <circle cx="780" cy="20" r="0.9" fill="#e2e8f0" opacity="0.45"/>
-    <circle cx="50" cy="62" r="0.9" fill="#e2e8f0" opacity="0.35"/>
-    <circle cx="220" cy="68" r="1.1" fill="#e2e8f0" opacity="0.45"/>
-    <circle cx="430" cy="52" r="1.0" fill="#e2e8f0" opacity="0.4"/>
-    <circle cx="600" cy="64" r="1.2" fill="#e2e8f0" opacity="0.5"/>
-    <circle cx="820" cy="48" r="0.9" fill="#e2e8f0" opacity="0.38"/>
-    <path d="M0 248 L30 248 L30 230 L48 230 L48 220 L64 220 L64 230 L80 230 L80 214 L96 214 L96 232 L112 232 L112 220 L128 220 L128 226 L146 226 L146 211 L162 211 L162 228 L180 228 L180 216 L196 216 L196 226 L214 226 L214 208 L230 208 L230 225 L248 225 L248 218 L266 218 L266 228 L284 228 L284 212 L302 212 L302 224 L320 224 L320 210 L338 210 L338 222 L358 222 L358 228 L376 228 L376 212 L395 212 L395 224 L414 224 L414 208 L432 208 L432 222 L452 222 L452 215 L470 215 L470 228 L490 228 L490 211 L508 211 L508 222 L528 222 L528 228 L546 228 L546 212 L565 212 L565 225 L584 225 L584 208 L602 208 L602 222 L622 222 L622 216 L640 216 L640 228 L660 228 L660 212 L678 212 L678 225 L698 225 L698 208 L716 208 L716 222 L736 222 L736 228 L754 228 L754 215 L772 215 L772 228 L792 228 L792 210 L812 210 L812 224 L832 224 L832 218 L852 218 L852 230 L872 230 L872 220 L900 220 L900 272 L0 272 Z" fill="#0c0d17"/>
-    <rect x="0" y="270" width="900" height="70" fill="#080604"/>
-    <line x1="0" y1="278" x2="900" y2="278" stroke="#C9952C" stroke-width="0.7" opacity="0.2"/>
-  </svg>
-
-    <!-- Runner image - right side, clear of text -->
-  <div style="position:absolute;bottom:26px;right:8%;z-index:1;pointer-events:none;">
-    <img src="data:image/png;base64,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"
-         alt="Runner silhouette"
-         style="height:230px;width:auto;display:block;">
+<div class="hero" style="position:relative;z-index:1;min-height:340px;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:3rem 1.5rem 2rem;background:transparent;">
+  <div class="hero-eyebrow">T-Mac · Fat Loss Protocol · 2026</div>
+  <h1>240 → <span>215</span></h1>
+  <p class="hero-sub">Simple food. High protein. Fasted runs. 10am–9pm window. Based on your Garmin average of 2,449 cal resting.</p>
+  <div class="stats">
+    <div class="stat"><div class="stat-val">1,750</div><div class="stat-label">Cal / Day</div></div>
+    <div class="stat"><div class="stat-val">190g</div><div class="stat-label">Protein</div></div>
+    <div class="stat"><div class="stat-val">2 lbs</div><div class="stat-label">/ Week</div></div>
+    <div class="stat"><div class="stat-val">~13wk</div><div class="stat-label">To Goal</div></div>
   </div>
-
-  <!-- Text content -->
-  <div style="position:relative;z-index:2;text-align:center;padding:1.5rem 1.5rem 1rem;width:100%;">
-    <div class="hero-eyebrow">T-Mac · Fat Loss Protocol · 2026</div>
-    <h1 style="margin:0.3rem 0 0.4rem;">240 → <span>215</span></h1>
-    <p class="hero-sub" style="margin-bottom:1.25rem;">Simple food. High protein. Fasted runs. 10am–9pm window. Based on your Garmin average of 2,449 cal resting.</p>
-  </div>
-
-  <!-- Stats inside hero -->
-  <div style="position:relative;z-index:2;padding:0 1.5rem 2rem;width:100%;">
-    <div class="stats">
-      <div class="stat"><div class="stat-val">1,750</div><div class="stat-label">Cal / Day</div></div>
-      <div class="stat"><div class="stat-val">190g</div><div class="stat-label">Protein</div></div>
-      <div class="stat"><div class="stat-val">2 lbs</div><div class="stat-label">/ Week</div></div>
-      <div class="stat"><div class="stat-val">~13wk</div><div class="stat-label">To Goal</div></div>
-    </div>
-  </div>
-
-</div>
-      </div>
 </div>
 
 <div class="container">
