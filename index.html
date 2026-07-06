@@ -1,0 +1,1461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>T-Mac Nutrition 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f1117;
+    --bg2: #181c27;
+    --bg3: #1f2435;
+    --border: #2a2f42;
+    --accent: #C9952C;
+    --accent2: #818cf8;
+    --green: #4ade80;
+    --amber: #fbbf24;
+    --red: #f87171;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --card: #1a1f2e;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(15,17,23,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 1rem;
+  }
+  .nav-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 54px;
+  }
+  .nav-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+  .nav-links {
+    display: flex;
+    gap: 0;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 0.28rem 0.32rem;
+    border-radius: 5px;
+    white-space: nowrap;
+    transition: color 0.15s, background 0.15s;
+  }
+  .nav-links a:hover, .nav-links a.active {
+    color: var(--accent);
+    background: rgba(201,149,44,0.08);
+  }
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: 0.2s;
+  }
+
+  @media (max-width: 700px) {
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 54px;
+      left: 0; right: 0;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      flex-direction: column;
+      padding: 0.5rem 1rem 1rem;
+      gap: 0.25rem;
+    }
+    .nav-links.open { display: flex; }
+    .nav-toggle { display: flex; }
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(160deg, #0f1117 0%, #1a1f35 60%, #0f1117 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 3rem 1.5rem 2.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; left: 50%;
+    transform: translateX(-50%);
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(201,149,44,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+  .hero h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(1.8rem, 6vw, 3rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.5rem;
+  }
+  .hero h1 span { color: var(--accent); }
+  .hero-sub {
+    color: var(--muted);
+    font-size: 0.82rem;
+    margin-bottom: 2rem;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* STAT CARDS */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+  @media (max-width: 500px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+  .stat {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.9rem 0.5rem;
+    text-align: center;
+  }
+  .stat-val {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--accent);
+  }
+  .stat-label {
+    font-size: 0.58rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 0.25rem;
+  }
+
+  /* MAIN LAYOUT */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 3rem 0 1rem;
+    border-top: 1px solid var(--border);
+    margin-top: 1.5rem;
+  }
+  section:first-of-type { border-top: none; }
+
+  .section-label {
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 0.4rem;
+  }
+  .section-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    margin-bottom: 1.25rem;
+  }
+
+  /* MEAL TIMELINE */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .meal-card {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 0;
+    position: relative;
+  }
+  .meal-time-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0;
+    width: 70px;
+    flex-shrink: 0;
+  }
+  .meal-time {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: center;
+    margin-bottom: 0.3rem;
+    line-height: 1.2;
+  }
+  .meal-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--bg);
+    box-shadow: 0 0 0 2px var(--accent);
+    flex-shrink: 0;
+    z-index: 1;
+  }
+  .meal-dot.optional { background: var(--accent2); box-shadow: 0 0 0 2px var(--accent2); }
+  .meal-dot.zero { background: var(--green); box-shadow: 0 0 0 2px var(--green); }
+  .meal-dot.warning { background: var(--amber); box-shadow: 0 0 0 2px var(--amber); }
+  .meal-line {
+    width: 2px;
+    flex: 1;
+    background: var(--border);
+    margin: 4px 0;
+    min-height: 20px;
+  }
+  .meal-body {
+    padding: 0 0 1.75rem 1rem;
+  }
+  .meal-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .meal-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  .meal-cal {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(201,149,44,0.1);
+    border: 1px solid rgba(201,149,44,0.2);
+    padding: 0.15rem 0.5rem;
+    border-radius: 20px;
+  }
+  .meal-cal.zero { color: var(--green); background: rgba(74,222,128,0.1); border-color: rgba(74,222,128,0.2); }
+  .meal-cal.optional { color: var(--accent2); background: rgba(129,140,248,0.1); border-color: rgba(129,140,248,0.2); }
+  .meal-cal.training { color: var(--amber); background: rgba(251,191,36,0.1); border-color: rgba(251,191,36,0.2); }
+  .meal-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .meal-option {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.5rem 0.7rem;
+    font-size: 0.78rem;
+    color: var(--text);
+  }
+  .meal-option strong {
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .meal-note {
+    font-size: 0.7rem;
+    color: var(--muted);
+    margin-top: 0.5rem;
+    font-style: italic;
+  }
+
+  /* MACRO BAR */
+  .macro-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  .macro-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem;
+  }
+  .macro-label {
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.3rem;
+  }
+  .macro-val {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 800;
+    line-height: 1;
+  }
+  .macro-val.protein { color: var(--accent); }
+  .macro-val.carbs { color: var(--amber); }
+  .macro-val.fat { color: var(--accent2); }
+  .macro-sub { font-size: 0.75rem; color: var(--muted); margin-top: 0.2rem; }
+
+  /* FOOD LIST */
+  .food-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.6rem;
+  }
+  .food-item {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.7rem 0.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+  .food-name {
+    font-weight: 600;
+    font-size: 0.78rem;
+  }
+  .food-detail {
+    font-size: 0.68rem;
+    color: var(--muted);
+  }
+  .food-tag {
+    display: inline-block;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 0.1rem 0.4rem;
+    border-radius: 20px;
+    margin-top: 0.3rem;
+    width: fit-content;
+  }
+  .tag-protein { background: rgba(201,149,44,0.12); color: var(--accent); }
+  .tag-carb { background: rgba(251,191,36,0.12); color: var(--amber); }
+  .tag-fat { background: rgba(129,140,248,0.12); color: var(--accent2); }
+  .tag-fruit { background: rgba(74,222,128,0.12); color: var(--green); }
+  .tag-supp { background: rgba(248,113,113,0.12); color: var(--red); }
+  .tag-treat { background: rgba(251,191,36,0.12); color: var(--amber); }
+
+  /* RULES */
+  .rules {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .rule {
+    background: var(--bg2);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 0.6rem 0.85rem;
+    font-size: 0.78rem;
+  }
+  .rule.amber { border-color: var(--amber); }
+  .rule.green { border-color: var(--green); }
+  .rule.purple { border-color: var(--accent2); }
+  .rule strong { color: var(--text); font-weight: 600; }
+
+  /* SUPPLEMENT TABLE */
+  .supp-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .supp-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.5rem;
+    align-items: start;
+  }
+  .supp-name { font-weight: 600; font-size: 0.8rem; }
+  .supp-detail { font-size: 0.72rem; color: var(--muted); margin-top: 0.15rem; }
+  .supp-dose {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-align: right;
+    white-space: nowrap;
+  }
+  .supp-timing { font-size: 0.7rem; color: var(--muted); text-align: right; }
+
+  /* PROGRESS */
+  .progress-section {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  .progress-title {
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin-bottom: 0.75rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 0.7rem;
+  }
+  .progress-bar-wrap {
+    background: var(--bg3);
+    border-radius: 20px;
+    height: 10px;
+    overflow: hidden;
+    margin-bottom: 0.4rem;
+  }
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    border-radius: 20px;
+    transition: width 1s ease;
+  }
+  .progress-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.68rem;
+    color: var(--muted);
+  }
+  .progress-labels strong { color: var(--text); }
+
+  /* MEAL PLAN GRID */
+  .mp-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+  .mp-leg-item { display: flex; align-items: center; gap: 0.35rem; }
+  .mp-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .mp-dot.mp-protein { background: var(--accent); }
+  .mp-dot.mp-carb { background: var(--amber); }
+  .mp-dot.mp-supp { background: var(--red); }
+  .mp-dot.mp-treat { background: var(--accent2); }
+  .mp-dot.mp-zero { background: var(--green); }
+
+  .mp-grid {
+    display: grid;
+    grid-template-columns: 90px repeat(7, 1fr);
+    gap: 3px;
+    font-size: 0.7rem;
+    overflow-x: auto;
+  }
+  @media (max-width: 600px) {
+    .mp-grid { grid-template-columns: 70px repeat(7, 1fr); font-size: 0.6rem; }
+  }
+  .mp-header {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.4rem 0.3rem;
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .mp-header.today {
+    background: rgba(201,149,44,0.15);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .mp-row-label {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.5rem 0.4rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    font-size: 0.65rem;
+  }
+  .mp-cell {
+    border-radius: 6px;
+    padding: 0.45rem 0.35rem;
+    border: 1px solid transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-height: 52px;
+  }
+  .mp-cell.mp-protein { background: rgba(201,149,44,0.1); border-color: rgba(201,149,44,0.2); }
+  .mp-cell.mp-carb { background: rgba(251,191,36,0.08); border-color: rgba(251,191,36,0.15); }
+  .mp-cell.mp-supp { background: rgba(248,113,113,0.08); border-color: rgba(248,113,113,0.15); }
+  .mp-cell.mp-treat { background: rgba(129,140,248,0.08); border-color: rgba(129,140,248,0.15); }
+  .mp-cell.mp-zero { background: rgba(74,222,128,0.08); border-color: rgba(74,222,128,0.15); }
+  .mp-cell.mp-empty { background: var(--bg2); border-color: var(--border); opacity: 0.4; }
+  .mp-food {
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.2;
+    font-size: 0.68rem;
+  }
+  .mp-cal {
+    color: var(--muted);
+    font-size: 0.6rem;
+  }
+
+
+  /* MEAL PLAN GRID */
+  .meal-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 1rem 0 1.5rem;
+  }
+  @media (max-width: 600px) {
+    .meal-grid { grid-template-columns: 1fr; }
+  }
+  .meal-card-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem 1.2rem;
+    border-left: 4px solid var(--accent);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .meal-card-box:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+  .meal-card-box.optional { border-left-color: var(--accent2); }
+  .meal-card-box.zero { border-left-color: var(--green); }
+  .meal-card-box.supp { border-left-color: var(--red); }
+  .meal-card-box.treat { border-left-color: var(--amber); }
+  .meal-card-box.full-width { grid-column: 1 / -1; }
+  .meal-card-time {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.15rem;
+  }
+  .meal-card-box.optional .meal-card-time { color: var(--accent2); }
+  .meal-card-box.zero .meal-card-time { color: var(--green); }
+  .meal-card-box.supp .meal-card-time { color: var(--red); }
+  .meal-card-box.treat .meal-card-time { color: var(--amber); }
+  .meal-card-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.2rem;
+  }
+  .meal-card-stats {
+    font-size: 0.67rem;
+    color: var(--muted);
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+  }
+  .meal-card-body {
+    font-size: 0.78rem;
+    color: var(--text);
+    line-height: 1.5;
+  }
+  .meal-card-body strong { color: var(--accent); font-weight: 600; }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 2.5rem 1rem;
+    color: var(--muted);
+    font-size: 0.75rem;
+    border-top: 1px solid var(--border);
+    margin-top: 3rem;
+  }
+
+  /* WINDOW BANNER */
+  .window-banner {
+    background: linear-gradient(90deg, rgba(201,149,44,0.08), rgba(129,140,248,0.08));
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.9rem 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  .window-icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+  }
+  .window-text strong { font-weight: 600; color: var(--accent); }
+  .window-text { font-size: 0.78rem; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">T-Mac Nutrition 2026</div>
+    <div class="nav-links" id="navLinks">
+            <a href="#overview">Overview</a>
+      <a href="#rules">Rules</a>
+      <a href="#mealplan">Meal Plan</a>
+      <a href="#recovery">Recovery</a>
+      <a href="#supplements">Supplements</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#snacks">Snacks</a>
+      <a href="#foods">Foods</a>
+      <a href="#progress">Progress</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">T-Mac · Fat Loss Protocol · 2026</div>
+  <h1>240 → <span>215</span></h1>
+  <p class="hero-sub">Simple food. High protein. Fasted runs. 10am–9pm window. Based on your Garmin average of 2,449 cal resting.</p>
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-val">1,750</div>
+      <div class="stat-label">Cal / Day</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val">190g</div>
+      <div class="stat-label">Protein</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val">2 lbs</div>
+      <div class="stat-label">/ Week</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val">~13wk</div>
+      <div class="stat-label">To Goal</div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- OVERVIEW -->
+  <section id="overview">
+    <div class="section-label">The Plan</div>
+    <div class="section-title">Overview</div>
+
+    <div class="macro-row">
+      <div class="macro-card">
+        <div class="macro-label">Daily Calories</div>
+        <div class="macro-val protein">1,750</div>
+        <div class="macro-sub">~950–1,050 cal deficit</div>
+      </div>
+      <div class="macro-card">
+        <div class="macro-label">Protein Target</div>
+        <div class="macro-val protein">175–195g</div>
+        <div class="macro-sub">muscle protection priority</div>
+      </div>
+      <div class="macro-card">
+        <div class="macro-label">Carbs / Fat</div>
+        <div class="macro-val carbs" style="font-size:1.2rem">120g / 50g</div>
+        <div class="macro-sub">adjust carbs first if stalled</div>
+      </div>
+    </div>
+
+    <div class="window-banner">
+      <div class="window-icon">⏱</div>
+      <div class="window-text"><strong>Eating Window: 10am – 9pm</strong> · Run fasted every morning. First meal at 10am. Nothing after 9pm. All 5 eating slots fit inside this window.</div>
+    </div>
+
+    <div class="rules">
+      <div class="rule"><strong>Fasted morning runs.</strong> Water only before and during. This is not negotiable — food before a run wrecks your performance and you know it.</div>
+      <div class="rule amber"><strong>Protein every meal.</strong> At a 1,000 cal deficit, protein is the only thing standing between you and losing muscle instead of fat. Never skip a protein source at any meal.</div>
+      <div class="rule green"><strong>No activity-based adjustments.</strong> The 1,750 cal target is fixed every day — lifting days, run days, desk days. This is calibrated to your Garmin resting average of 2,449 cal/day, giving a true ~950–1,050 cal deficit across your mixed training week. Don't eat back workout calories.</div>
+      <div class="rule purple"><strong>The short food list is a feature.</strong> Fewer decisions = fewer opportunities to go off-plan. You know exactly what's in the house.</div>
+    </div>
+  </section>
+
+  <!-- DAILY SCHEDULE -->
+  <!-- RULES -->
+  <section id="rules">
+    <div class="section-label">When Things Get Hard</div>
+    <div class="section-title">Protocols & Rules</div>
+    <div class="rules">
+      <div class="rule"><strong>Plateau protocol:</strong> If weight stalls for 2+ weeks, drop carbs by 20g first — reduce the rice or potato portion. Never cut protein. Try this for 2 weeks before any other adjustment.</div>
+      <div class="rule amber"><strong>Performance dips:</strong> If strength or run pace drops significantly for 2+ consecutive weeks, bump to 1,800 cal temporarily. Don't grind through impaired form — that's how injuries happen.</div>
+      <div class="rule green"><strong>Scale expectations:</strong> Week 1–2: 3–5 lbs (mostly water + glycogen — don't get overconfident). Weeks 3+: 1.5–2.5 lbs/week average. Some flat weeks are completely normal.</div>
+      <div class="rule purple"><strong>Desk discipline:</strong> Eat at a table, not at the screen. Drink 16 oz water before reaching for food between meals — most mid-desk hunger is thirst or boredom, not real hunger.</div>
+      <div class="rule"><strong>Batch cook Sunday:</strong> Brown a pound of ground beef, cook a batch of rice, roast potato wedges. Lunch is solved for 3 days. Remove the friction.</div>
+      <div class="rule amber"><strong>Ice cream rule:</strong> Up to 3× per week in the evening slot. ½ cup ice cream or 2 cookies both land ~150 cal. More = trades against dinner's rice or potato, not in addition to it.</div>
+    </div>
+  </section>
+
+  <!-- MEAL PLAN -->
+  <section id="mealplan">
+    <div class="section-label">Daily Structure</div>
+    <div class="section-title">Meal Plan</div>
+    <p style="color:var(--muted);font-size:0.875rem;margin-bottom:1.25rem;line-height:1.6;">Five eating occasions inside a 10am–9pm window. Protein at every slot. Fixed 1,750 cal target regardless of training load — no eating back workout calories.</p>
+
+    <div class="meal-grid">
+
+      <div class="meal-card-box zero">
+        <div class="meal-card-time">Before Run · Fasted</div>
+        <div class="meal-card-name">Collagen + Hydration</div>
+        <div class="meal-card-stats">~25 cal · 10g collagen · electrolytes</div>
+        <div class="meal-card-body">Mix collagen peptides + Ghost hydration packet into water and drink 30–45 min before the run. On training days only. Running 10 min after waking? Prep the bottle the night before, or take it post-run within an hour. Rest days: take with first meal at 10am instead.</div>
+      </div>
+
+      <div class="meal-card-box">
+        <div class="meal-card-time">10:00 AM · First Meal</div>
+        <div class="meal-card-name">Breakfast</div>
+        <div class="meal-card-stats">~350–400 cal · ~30–35g protein · 5g creatine</div>
+        <div class="meal-card-body"><strong>Option A</strong> — Shrimp Bowl: 5 oz shrimp over ½ cup rice.<br><strong>Option B</strong> — Fairlife shake + 1 tbsp PB on a rice cake.<br><strong>Option C</strong> — Deli wrap (4 oz turkey or roast beef) + Fairlife shake.<br>Take 5g creatine in water with this meal every day.</div>
+      </div>
+
+      <div class="meal-card-box optional">
+        <div class="meal-card-time">11:00–12:00 PM · Optional</div>
+        <div class="meal-card-name">Mid-Morning Snack</div>
+        <div class="meal-card-stats">35–105 cal · only if hungry</div>
+        <div class="meal-card-body">1–3 clementines — 35 cal each, no prep, no mess. Skip entirely if not genuinely hungry. The deficit lives here on low-appetite mornings.</div>
+      </div>
+
+      <div class="meal-card-box">
+        <div class="meal-card-time">12:30–1:00 PM · Anchor</div>
+        <div class="meal-card-name">Lunch</div>
+        <div class="meal-card-stats">~500–550 cal · ~35–40g protein</div>
+        <div class="meal-card-body"><strong>Option A</strong> — Ground beef rice bowl (cumin, garlic, salsa).<br><strong>Option B</strong> — Chipotle chicken over rice with pico.<br><strong>Option C</strong> — Steak + roasted potato wedges.<br><strong>Option D</strong> — Deli wrap + Ghost clear whey on the side.<br><strong>Option E</strong> — Tuna bowl over rice with hot sauce.<br>Biggest meal of the day — don't skip or shrink it.</div>
+      </div>
+
+      <div class="meal-card-box supp">
+        <div class="meal-card-time">3:00 PM · Daily</div>
+        <div class="meal-card-name">Afternoon Creatine</div>
+        <div class="meal-card-stats">0 cal · 5g creatine in water</div>
+        <div class="meal-card-body">Second creatine dose — 30 seconds, stir into water, done. Supports cognitive function, reaction time, and mental fatigue resistance at the desk for the rest of the afternoon.</div>
+      </div>
+
+      <div class="meal-card-box treat">
+        <div class="meal-card-time">4:30–5:00 PM · Training Days Only</div>
+        <div class="meal-card-name">Pre-Workout</div>
+        <div class="meal-card-stats">~90 cal · 20g protein</div>
+        <div class="meal-card-body">Ghost clear whey shaken with cold water, 30–45 min before lifting. Skip entirely on rest and desk-only days. Run → lift same morning? Ghost whey goes between the run and the lift — not here.</div>
+      </div>
+
+      <div class="meal-card-box">
+        <div class="meal-card-time">6:00–7:00 PM</div>
+        <div class="meal-card-name">Dinner</div>
+        <div class="meal-card-stats">~450–500 cal · ~35–40g protein</div>
+        <div class="meal-card-body"><strong>Option A</strong> — Shrimp & roasted potato.<br><strong>Option B</strong> — Ground beef pasta with marinara.<br><strong>Option C</strong> — Chipotle chicken over rice with salsa.<br><strong>Option D</strong> — Nugget night + small baked potato.<br><strong>Option E</strong> — Tuna & pasta with garlic and olive oil.<br>Leftovers from lunch? Perfect — that's the point of batch cooking.</div>
+      </div>
+
+      <div class="meal-card-box optional">
+        <div class="meal-card-time">By 9:00 PM · Optional · Window Closes</div>
+        <div class="meal-card-name">Evening</div>
+        <div class="meal-card-stats">~150 cal max · up to 3× treats/week</div>
+        <div class="meal-card-body"><strong>If hungry:</strong> Fairlife shake (150 cal, 30g protein).<br><strong>Treat nights (3×/week):</strong> ½ cup ice cream or 2 cookies (~150 cal) — not both. More ice cream trades against dinner's carbs. Window closes at 9pm.<br><strong>Ninja Creami night:</strong> ½ pint protein ice cream (~215 cal, ~38g protein) — Kirkland protein milk + 1 tbsp pudding mix + 1 scoop Ghost whey, frozen 24 hrs. Best high-protein evening treat on the list.</div>
+      </div>
+
+    </div>
+  </section>
+
+<!-- RECOVERY -->
+  <section id="recovery">
+    <div class="section-label">Rest & Repair</div>
+    <div class="section-title">Recovery</div>
+
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom:1.25rem">
+      <div class="macro-card">
+        <div class="macro-label">Desk Day Water</div>
+        <div class="macro-val protein">120 oz</div>
+        <div class="macro-sub">~3 × 40 oz bottle</div>
+      </div>
+      <div class="macro-card">
+        <div class="macro-label">Training Day Water</div>
+        <div class="macro-val carbs">150 oz</div>
+        <div class="macro-sub">~4 × 40 oz bottle</div>
+      </div>
+      <div class="macro-card">
+        <div class="macro-label">Sleep Floor</div>
+        <div class="macro-val fat">7.5 hrs</div>
+        <div class="macro-sub">5 × 90 min cycles</div>
+      </div>
+      <div class="macro-card">
+        <div class="macro-label">Sleep Target</div>
+        <div class="macro-val protein">9 hrs</div>
+        <div class="macro-sub">heavy training days</div>
+      </div>
+    </div>
+
+    <div class="section-label" style="margin-top:1.5rem">Hydration</div>
+    <div class="rules" style="margin-bottom:1.5rem">
+      <div class="rule"><strong>Baseline: half your bodyweight in oz.</strong> At 240 lbs that's 120 oz minimum on a desk-only day. Every training session adds to that — 16–24 oz per hour of running, 8–16 oz for a lift session.</div>
+      <div class="rule amber"><strong>Creatine demands more water.</strong> 10g creatine daily pulls water into muscle cells. Skimping on water while on creatine causes headaches, cramping, and blunts the benefits. This is the most common creatine mistake.</div>
+      <div class="rule green"><strong>Travel days: drink significantly more.</strong> Jerky, cheese packs, pretzels, and Chex mix are all high sodium. The scale will be up the next morning — that's water retention, not fat. Offset it with 150+ oz on travel days.</div>
+      <div class="rule purple"><strong>Real-time check: urine color.</strong> Pale yellow = good. Dark yellow = drink more. Clear = slightly overdone but fine. Use a 40 oz Stanley or Hydro Flask — 3 fills on desk days, 4 on training days.</div>
+      <div class="rule"><strong>Monster Energy:</strong> Sugar-free only on this plan — same 160mg caffeine, ~10 cal vs. 190 cal and 54g sugar in a regular can. Keep it before noon (caffeine half-life is 5–6 hrs and will affect sleep). Offset each can with an extra 16 oz of water. Three sugar-free Monsters a week is a non-issue for your goals.</div>
+    </div>
+
+    <div class="section-label">Sleep</div>
+    <div class="rules">
+      <div class="rule"><strong>7.5 hrs is your floor — not your target.</strong> Sleep cycles run ~90 minutes. 7.5 hrs (5 cycles) and 9 hrs (6 cycles) feel better than 8 hrs which cuts mid-cycle and leaves you groggy.</div>
+      <div class="rule amber"><strong>Poor sleep works directly against the cut.</strong> Sleep deprivation raises cortisol (increases fat storage, breaks down muscle), spikes ghrelin (hunger hormone up ~24%), and drops willpower. You will be hungrier and make worse food choices on bad sleep nights — especially hard at 1,750 cal.</div>
+      <div class="rule green"><strong>Growth hormone releases primarily in deep sleep.</strong> That's when your body actually repairs the muscle from lifting and the connective tissue stress from running. The work you put in is only as good as the sleep you get after it. Creatine and collagen both do more work during sleep — chronically short nights waste them.</div>
+      <div class="rule purple"><strong>Protect bedtime on early run days.</strong> If you're out the door at 6am, that means lights out by 10–10:30pm. Don't let late nights stack on top of early mornings — that's the fastest way to stall progress and increase injury risk on the half marathon plan.</div>
+      <div class="rule"><strong>Heavy training days (long run or run + lift):</strong> Prioritize 9 hrs. Your body needs the extra cycle. Non-negotiable during peak half marathon mileage weeks.</div>
+    </div>
+  </section>
+
+  <!-- SUPPLEMENTS -->
+  <section id="supplements">
+    <div class="section-label">Daily Stack</div>
+    <div class="section-title">Supplements</div>
+    <div class="supp-grid">
+      <div class="supp-card">
+        <div>
+          <div class="supp-name">Creatine Monohydrate</div>
+          <div class="supp-detail">Split dose — 5g with breakfast in water, 5g mid-afternoon in water. Muscle performance + cognitive function (reaction time, mental fatigue at the desk). 15g not well-supported — 10g is the sweet spot.</div>
+        </div>
+        <div>
+          <div class="supp-dose">10g / day</div>
+          <div class="supp-timing">5g + 5g split</div>
+        </div>
+      </div>
+      <div class="supp-card">
+        <div>
+          <div class="supp-name">Ghost Hydration Packet</div>
+          <div class="supp-detail">~15–25 cal · electrolytes + vitamin C. Primary collagen pairing vehicle — the vitamin C activates collagen synthesis. Mix with collagen peptides 30–45 min before training. Also great on travel days and long run days to stay ahead of sodium/electrolyte loss.</div>
+        </div>
+        <div>
+          <div class="supp-dose">1 / day</div>
+          <div class="supp-timing">Pre-run or first meal</div>
+        </div>
+      </div>
+      <div class="supp-card">
+        <div>
+          <div class="supp-name">Collagen Peptides</div>
+          <div class="supp-detail">10g mixed into water with a Ghost hydration packet 30–45 min before training — the vitamin C in the packet activates collagen synthesis for connective tissue repair. Running 10 min after waking? Prep the bottle the night before and chug it on the way out, or take it post-run within an hour. On rest/desk days, take with first meal at 10am. Especially important with running and lifting stacked together.</div>
+        </div>
+        <div>
+          <div class="supp-dose">10g / day</div>
+          <div class="supp-timing">Pre-run on training days</div>
+        </div>
+      </div>
+      <div class="supp-card">
+        <div>
+          <div class="supp-name">Fairlife Protein Shake</div>
+          <div class="supp-detail">150 cal · 30g protein. Primary liquid protein source. Counts as a meal slot — not a freebie on top of food.</div>
+        </div>
+        <div>
+          <div class="supp-dose">1 / day</div>
+          <div class="supp-timing">Breakfast or Evening</div>
+        </div>
+      </div>
+      <div class="supp-card">
+        <div>
+          <div class="supp-name">Ghost Clear Whey</div>
+          <div class="supp-detail">~90 cal · 20g protein · cold water only. Pre-workout on training days only. Skip on rest days — don't add it on top of food to hit a number.</div>
+        </div>
+        <div>
+          <div class="supp-dose">1 scoop</div>
+          <div class="supp-timing">Training days only</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="schedule">
+    <div class="section-label">Daily Structure</div>
+    <div class="section-title">Meal Schedule</div>
+
+    <div class="timeline">
+
+      <!-- Fasted Run -->
+      <div class="meal-card">
+        <div class="meal-time-col">
+          <div class="meal-time">Run Window</div>
+          <div class="meal-dot zero"></div>
+          <div class="meal-line"></div>
+        </div>
+        <div class="meal-body">
+          <div class="meal-header">
+            <div class="meal-title">Fasted Morning Run</div>
+            <div class="meal-cal zero">0 cal</div>
+          </div>
+          <div class="meal-options">
+            <div class="meal-option">Water only during the run. No food until 10am. This is your fat-burning window — don't interrupt it.</div>
+            <div class="meal-option"><strong>30–45 min before the run (ideal):</strong> Mix collagen peptides + Ghost hydration packet into water and drink it. The vitamin C in the Ghost hydration packet activates collagen for joint and connective tissue repair. Both are fine fasted and won't disrupt fat burning or upset your stomach running.</div>
+            <div class="meal-option"><strong>If you're running 10 minutes after waking:</strong> Two options — prep the collagen + Ghost hydration in a water bottle the night before and chug it the moment you wake up, or just take it post-run within an hour of finishing. Post-run collagen is still well-supported for connective tissue repair. Don't skip it over timing stress — around training beats perfect timing every time.</div>
+            <div class="meal-option"><strong>If lifting immediately after the run:</strong> Ghost clear whey in the gap between finishing the run and starting the lift. Run stays fasted, whey bridges into the lift. First full meal still at 10am after both are done.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Breakfast -->
+      <div class="meal-card">
+        <div class="meal-time-col">
+          <div class="meal-time">10am</div>
+          <div class="meal-dot"></div>
+          <div class="meal-line"></div>
+        </div>
+        <div class="meal-body">
+          <div class="meal-header">
+            <div class="meal-title">Breakfast — First Meal of the Day</div>
+            <div class="meal-cal">350–400 cal</div>
+          </div>
+          <div class="meal-options">
+            <div class="meal-option"><strong>Option A — Shrimp Bowl:</strong> 5 oz shrimp sautéed in garlic and light butter over ½ cup rice.</div>
+            <div class="meal-option"><strong>Option B — Fairlife + PB:</strong> Fairlife shake + 1 tbsp peanut butter on a rice cake or bread. Fast and desk-friendly.</div>
+            <div class="meal-option"><strong>Option C — Deli Wrap:</strong> 4 oz turkey or roast beef in a low-carb tortilla with mustard, paired with a Fairlife shake.</div>
+          </div>
+          <div class="meal-note">🕙 Eat at 10am — first meal after the fasted run. Non-negotiables: 5g creatine stirred into water. On desk-only days (no training): take collagen + Ghost hydration packet here instead of pre-run.</div>
+        </div>
+      </div>
+
+      <!-- Mid-morning -->
+      <div class="meal-card">
+        <div class="meal-time-col">
+          <div class="meal-time">11–12pm</div>
+          <div class="meal-dot optional"></div>
+          <div class="meal-line"></div>
+        </div>
+        <div class="meal-body">
+          <div class="meal-header">
+            <div class="meal-title">Mid-Morning Snack</div>
+            <div class="meal-cal optional">Optional · 35–105 cal</div>
+          </div>
+          <div class="meal-options">
+            <div class="meal-option"><strong>1–3 clementines</strong> — 35 cal each. Easy, no prep, no mess. Keeps you from arriving at lunch ravenous. Skip if you're not actually hungry — the deficit lives here on low-appetite mornings.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lunch -->
+      <div class="meal-card">
+        <div class="meal-time-col">
+          <div class="meal-time">12:30–1pm</div>
+          <div class="meal-dot"></div>
+          <div class="meal-line"></div>
+        </div>
+        <div class="meal-body">
+          <div class="meal-header">
+            <div class="meal-title">Lunch — Anchor Meal</div>
+            <div class="meal-cal">500–550 cal</div>
+          </div>
+          <div class="meal-options">
+            <div class="meal-option"><strong>Option A — Ground Beef Rice Bowl:</strong> 4 oz 93/7 ground beef (cumin, garlic, chili flakes) over ½ cup rice with salsa or hot sauce.</div>
+            <div class="meal-option"><strong>Option B — Chipotle Chicken + Rice:</strong> 5 oz chipotle chicken over ½ cup rice with salsa or pico.</div>
+            <div class="meal-option"><strong>Option C — Steak + Potato:</strong> 4 oz sirloin with roasted potato wedges (olive oil spray, paprika, salt).</div>
+            <div class="meal-option"><strong>Option E — Tuna Bowl:</strong> 1 can (5 oz) tuna over ½ cup rice with hot sauce or mustard. ~280 cal, 35g protein — leaves room in the budget for a bigger dinner or evening treat.</div>
+          </div>
+          <div class="meal-note">This is your biggest meal. Do not skip or shrink it — it anchors the day's protein and keeps you from crashing at the desk.</div>
+        </div>
+      </div>
+
+      <!-- Afternoon creatine -->
+      <div class="meal-card">
+        <div class="meal-time-col">
+          <div class="meal-time">3pm</div>
+          <div class="meal-dot zero"></div>
+          <div class="meal-line"></div>
+        </div>
+        <div class="meal-body">
+          <div class="meal-header">
+            <div class="meal-title">Afternoon Creatine Dose</div>
+            <div class="meal-cal zero">0 cal</div>
+          </div>
+          <div class="meal-options">
+            <div class="meal-option">5g creatine stirred into water. 30 seconds. Supports afternoon cognitive performance — reaction time, focus, and mental fatigue resistance at the desk.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pre-workout -->
+      <div class="meal-card">
+        <div class="meal-time-col">
+          <div class="meal-time">Training Only</div>
+          <div class="meal-dot warning"></div>
+          <div class="meal-line"></div>
+        </div>
+        <div class="meal-body">
+          <div class="meal-header">
+            <div class="meal-title">Pre-Workout</div>
+            <div class="meal-cal training">Afternoon Lifting Only · ~90 cal</div>
+          </div>
+          <div class="meal-options">
+            <div class="meal-option">Ghost clear whey shaken with cold water 30–45 min before lifting. 20g protein, ~90 cal, done. Skip entirely on rest days and desk-only days.</div>
+          </div>
+          <div class="meal-note">Run → lift same morning? That's handled in the fasted run slot above — Ghost whey goes between the run and the lift, not here.</div>
+        </div>
+      </div>
+
+      <!-- Dinner -->
+      <div class="meal-card">
+        <div class="meal-time-col">
+          <div class="meal-time">6–7pm</div>
+          <div class="meal-dot"></div>
+          <div class="meal-line"></div>
+        </div>
+        <div class="meal-body">
+          <div class="meal-header">
+            <div class="meal-title">Dinner</div>
+            <div class="meal-cal">450–500 cal</div>
+          </div>
+          <div class="meal-options">
+            <div class="meal-option"><strong>Option A — Shrimp & Potato:</strong> 5 oz shrimp in garlic butter with roasted potato wedges.</div>
+            <div class="meal-option"><strong>Option B — Ground Beef Pasta:</strong> 4 oz ground beef with ½ cup pasta, marinara, light parmesan.</div>
+            <div class="meal-option"><strong>Option C — Chipotle Chicken + Rice:</strong> 5 oz chicken over ½ cup rice with salsa.</div>
+            <div class="meal-option"><strong>Option D — Nugget Night:</strong> 5 oz oven-baked chicken nuggets with a small baked potato. Weigh the nuggets.</div>
+            <div class="meal-option"><strong>Option E — Tuna & Pasta:</strong> 1 can (5 oz) tuna mixed into ½ cup pasta with olive oil, garlic, salt, and pepper. Simple, fast, high protein.</div>
+          </div>
+          <div class="meal-note">Made a big batch at lunch? Just eat the leftovers — that's the point of batch cooking.</div>
+        </div>
+      </div>
+
+      <!-- Evening -->
+      <div class="meal-card">
+        <div class="meal-time-col">
+          <div class="meal-time">By 9pm</div>
+          <div class="meal-dot optional"></div>
+          <div class="meal-line"></div>
+        </div>
+        <div class="meal-body">
+          <div class="meal-header">
+            <div class="meal-title">Evening — Window Closes</div>
+            <div class="meal-cal optional">Optional · 150 cal max</div>
+          </div>
+          <div class="meal-options">
+            <div class="meal-option"><strong>If hungry:</strong> Fairlife shake — 150 cal, 30g protein. Cleanest option.</div>
+            <div class="meal-option"><strong>Treat nights (up to 3×/week):</strong> ½ cup ice cream or 2 cookies — both ~150 cal. Skip the Fairlife if you're doing this. Want more? Trades against dinner's rice or potato.</div>
+            <div class="meal-option"><strong>Ninja Creami night:</strong> ½ pint protein ice cream — Kirkland protein milk + 1 tbsp pudding mix + 1 scoop Ghost whey, frozen 24 hrs. ~215 cal, ~38g protein. Best high-protein treat on the plan.</div>
+          </div>
+          <div class="meal-note">Window closes at 9pm. If not hungry, skip it entirely and bank the deficit.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SNACKS & TRAVEL -->
+  <section id="snacks">
+    <div class="section-label">On The Go</div>
+    <div class="section-title">Snacks & Travel Foods</div>
+
+    <div class="rules" style="margin-bottom:1.25rem">
+      <div class="rule green"><strong>Snacks are not a guaranteed slot.</strong> They replace the mid-morning optional or evening optional when you need something and a real meal isn't available. They don't add on top of the daily structure.</div>
+      <div class="rule amber"><strong>Traveling:</strong> Beef jerky is your best travel protein. Keep it in the bag. Pair with a small carb if you need a proper mini-meal, otherwise it's a standalone snack.</div>
+    </div>
+
+    <div class="food-grid">
+      <div class="food-item">
+        <div class="food-name">Legendary Pastries</div>
+        <div class="food-detail">1 pastry · ~190 cal · 20g protein · 3–5g sugar</div>
+        <div class="food-detail" style="margin-top:0.25rem">Protein pop-tart. Best travel breakfast when a real meal isn't available — pair with a Fairlife shake for ~50g protein and ~340 cal. One is a snack, two is a meal. Don't mindlessly eat them like chips.</div>
+        <div class="food-tag tag-protein">Travel Protein</div>
+      </div>
+      <div class="food-item">
+        <div class="food-name">Beef Jerky</div>
+        <div class="food-detail">1 oz · ~80 cal · 9–11g protein · low fat</div>
+        <div class="food-detail" style="margin-top:0.25rem">Best travel protein. Shelf stable, high protein density, keeps hunger at bay. Watch sodium on long travel days — drink extra water.</div>
+        <div class="food-tag tag-protein">Travel Protein</div>
+      </div>
+      <div class="food-item">
+        <div class="food-name">Cheese & Cracker Packs</div>
+        <div class="food-detail">1 pack · ~180–220 cal · 6–8g protein</div>
+        <div class="food-detail" style="margin-top:0.25rem">Counts as a snack slot — not a side item on top of a meal. Fine occasionally at the desk or while traveling.</div>
+        <div class="food-tag tag-treat">Occasional</div>
+      </div>
+      <div class="food-item">
+        <div class="food-name">Cheese & PB Packs</div>
+        <div class="food-detail">1 pack · ~200–240 cal · 7–9g protein</div>
+        <div class="food-detail" style="margin-top:0.25rem">Slightly better protein than crackers-only packs. Good travel option. Same rule — it's a snack slot replacement, not an add-on.</div>
+        <div class="food-tag tag-treat">Occasional</div>
+      </div>
+      <div class="food-item">
+        <div class="food-name">Pretzels</div>
+        <div class="food-detail">1 oz · ~110 cal · 2g protein · mostly carb</div>
+        <div class="food-detail" style="margin-top:0.25rem">Low protein, easy to over-eat. Pair with jerky if using for travel so there's protein attached. Fine occasionally.</div>
+        <div class="food-tag tag-carb">Travel Carb</div>
+      </div>
+      <div class="food-item">
+        <div class="food-name">Chex Mix</div>
+        <div class="food-detail">¾ cup · ~120–140 cal · 2–3g protein</div>
+        <div class="food-detail" style="margin-top:0.25rem">Occasional only — low protein, easy to mindlessly over-portion. Measure it. Good desk or travel snack when the craving hits. Not a regular rotation item.</div>
+        <div class="food-tag tag-treat">Occasional</div>
+      </div>
+      <div class="food-item">
+        <div class="food-name">Clementines / Cuties</div>
+        <div class="food-detail">1 piece · ~35 cal · natural sugar</div>
+        <div class="food-detail" style="margin-top:0.25rem">Best desk snack — no mess, no prep, fits in a bag. 1–3 per day in the mid-morning optional slot.</div>
+        <div class="food-tag tag-fruit">Desk Snack</div>
+      </div>
+    </div>
+
+    <div class="rules" style="margin-top:1rem">
+      <div class="rule"><strong>Travel day strategy:</strong> Bag = beef jerky + Legendary pastry + Fairlife shake + Ghost hydration packets. Pastry + Fairlife = ~50g protein and ~340 cal for breakfast anywhere. Jerky covers snacking. Add pretzels or Chex mix if you need extra carbs. Grab a real meal when you land.</div>
+      <div class="rule purple"><strong>Sodium on travel days:</strong> Jerky, cheese packs, pretzels, and Chex mix are all high sodium. Drink significantly more water on travel days — you'll retain water and the scale will be up the next morning. Not fat. Just water. Don't panic.</div>
+    </div>
+  </section>
+
+  <!-- FOODS -->
+  <section id="foods">
+    <div class="section-label">The List</div>
+    <div class="section-title">Approved Foods</div>
+    <div class="food-grid">
+      <div class="food-item">
+        <div class="food-name">Canned Tuna</div>
+        <div class="food-detail">1 can (5 oz) · ~150 cal · 33–35g protein · ~1g fat</div>
+        <div class="food-detail" style="margin-top:0.25rem">Best protein-per-calorie on the list. Pairs with rice, pasta, or crackers. Hot sauce or mustard to taste.</div>
+        <div class="food-tag tag-protein">Protein</div>
+      </div>
+      <div class="food-item">
+        <div class="food-name">Shrimp</div>
+        <div class="food-detail">5 oz · ~150 cal · 28g protein</div>
+        <div class="food-tag tag-protein">Protein</div>
+      </div>
+      <div class="food-item">
+        <div class="food-name">Ground Beef 93/7</div>
+        <div class="food-detail">4 oz · ~200 cal · 26g protein</div>
+        <div class="food-tag tag-protein">Protein</div>
+      </div>
+      <div class="food-item">
+        <div class="food-name">Chipotle Chicken</div>
+        <div class="food-detail">5 oz · ~220 cal · 35g protein</div>
+        <div class="food-tag tag-protein">Protein</div>
+      </div>
+      <div class="food-item">
+        <div class="food-name">Sirloin Steak</div>
+        <div class="food-detail">4 oz · ~200 cal · 28g protein</div>
+        <div class="food-tag tag-protein">Protein</div>
+      </div>
+      <div class="food-item">
+        <div class="food-name">Deli Turkey / Roast Beef</div>
+        <div class="food-detail">4 oz · ~140 cal · 22g protein</div>
+        <div class="food-tag tag-protein">Protein</div>
+      </div>
+      <div class="food-item">
+        <div class="food-name">Chicken Nuggets</div>
+        <div class="food-detail">5 oz baked · ~250 cal · 20g protein</div>
+        <div class="food-tag tag-protein">Protein</div>
+      </div>
+      <div class="food-item">
+        <div class="food-name">White Rice</div>
+        <div class="food-detail">½ cup cooked · ~100 cal · 2g protein</div>
+        <div class="food-tag tag-carb">Carb</div>
+      </div>
+      <div class="food-item">
+        <div class="food-name">Pasta</div>
+        <div class="food-detail">½ cup cooked · ~110 cal · 4g protein</div>
+        <div class="food-tag tag-carb">Carb</div>
+      </div>
+      <div class="food-item">
+        <div class="food-name">Russet / Yukon Potato</div>
+        <div class="food-detail">1 small-med · ~130 cal · 3g protein</div>
+        <div class="food-tag tag-carb">Carb</div>
+      </div>
+      <div class="food-item">
+        <div class="food-name">Clementines / Cuties</div>
+        <div class="food-detail">1 piece · ~35 cal · natural sugar</div>
+        <div class="food-tag tag-fruit">Fruit</div>
+      </div>
+      <div class="food-item">
+        <div class="food-name">Peanut Butter</div>
+        <div class="food-detail">1 tbsp · ~95 cal · 4g protein</div>
+        <div class="food-tag tag-fat">Fat</div>
+      </div>
+      <div class="food-item">
+        <div class="food-name">Ninja Creami Protein Ice Cream</div>
+        <div class="food-detail">½ pint · ~215 cal · ~38g protein</div>
+        <div class="food-detail" style="margin-top:0.25rem">Kirkland protein milk + 1 tbsp pudding mix + 1 scoop Ghost whey. Freeze 24 hrs, spin on Lite Ice Cream setting. Best protein-to-treat ratio on the plan.</div>
+        <div class="food-tag tag-treat">Evening Treat</div>
+      </div>
+      <div class="food-item">
+        <div class="food-name">Ice Cream / Cookies</div>
+        <div class="food-detail">½ cup or 2 cookies · ~150 cal · 3×/week max</div>
+        <div class="food-tag tag-treat">Treat</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRESS -->
+  <section id="progress">
+    <div class="section-label">The Journey</div>
+    <div class="section-title">Progress Tracker</div>
+
+    <div class="progress-section">
+      <div class="progress-title">Starting Weight → Goal</div>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar" style="width: 0%" id="progressBar"></div>
+      </div>
+      <div class="progress-labels">
+        <span><strong>240.8 lbs</strong> Start</span>
+        <span id="progressPct">0% complete</span>
+        <span><strong>215 lbs</strong> Goal</span>
+      </div>
+    </div>
+
+    <div class="macro-row" style="margin-top:1rem">
+      <div class="macro-card">
+        <div class="macro-label">To Lose</div>
+        <div class="macro-val protein">25.8 lbs</div>
+        <div class="macro-sub">total target</div>
+      </div>
+      <div class="macro-card">
+        <div class="macro-label">Pace</div>
+        <div class="macro-val carbs">2 lbs</div>
+        <div class="macro-sub">per week avg</div>
+      </div>
+      <div class="macro-card">
+        <div class="macro-label">Timeline</div>
+        <div class="macro-val fat">~13 wks</div>
+        <div class="macro-sub">at pace</div>
+      </div>
+    </div>
+
+    <div class="rules" style="margin-top:1rem">
+      <div class="rule green"><strong>At 215 lbs — reassess.</strong> Add 150–200 cal back and slow to 1 lb/week maintenance mode, or continue the cut. Don't decide now.</div>
+    </div>
+  </section>
+
+</div>
+</div>
+</div>
+
+
+
+<footer>
+  T-Mac Cut Plan · Built July 2026 · Powered by stubbornness and shrimp bowls
+</footer>
+
+<script>
+  // MEAL PLAN GRID
+  const days = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+  const todayIdx = (new Date().getDay() + 6) % 7; // 0=Mon
+
+  const rows = [
+    {
+      label: 'Pre-Run',
+      cells: [
+        { food: 'Collagen + Ghost Hydration', cal: '~25 cal', type: 'mp-supp' },
+        { food: 'Collagen + Ghost Hydration', cal: '~25 cal', type: 'mp-supp' },
+        { food: 'Collagen + Ghost Hydration', cal: '~25 cal', type: 'mp-supp' },
+        { food: 'Rest Day', cal: '', type: 'mp-empty' },
+        { food: 'Collagen + Ghost Hydration', cal: '~25 cal', type: 'mp-supp' },
+        { food: 'Collagen + Ghost Hydration', cal: '~25 cal', type: 'mp-supp' },
+        { food: 'Collagen + Ghost Hydration', cal: '~25 cal', type: 'mp-supp' },
+      ]
+    },
+    {
+      label: 'Breakfast 10am',
+      cells: [
+        { food: 'Shrimp Bowl', cal: '~380 cal', type: 'mp-protein' },
+        { food: 'Fairlife + PB', cal: '~350 cal', type: 'mp-protein' },
+        { food: 'Tuna + Rice', cal: '~350 cal', type: 'mp-protein' },
+        { food: 'Rest Day — Deli Wrap + Fairlife', cal: '~370 cal', type: 'mp-protein' },
+        { food: 'Shrimp Bowl', cal: '~380 cal', type: 'mp-protein' },
+        { food: 'Fairlife + PB', cal: '~350 cal', type: 'mp-protein' },
+        { food: 'Deli Wrap + Fairlife', cal: '~370 cal', type: 'mp-protein' },
+      ]
+    },
+    {
+      label: 'Creatine 5g',
+      cells: days.map(() => ({ food: '5g Creatine in water', cal: '0 cal', type: 'mp-supp' }))
+    },
+    {
+      label: 'Mid-Morning',
+      cells: [
+        { food: '1–3 Clementines', cal: '35–105 cal', type: 'mp-treat' },
+        { food: 'Skip if not hungry', cal: '', type: 'mp-empty' },
+        { food: '1–3 Clementines', cal: '35–105 cal', type: 'mp-treat' },
+        { food: 'Skip if not hungry', cal: '', type: 'mp-empty' },
+        { food: '1–3 Clementines', cal: '35–105 cal', type: 'mp-treat' },
+        { food: 'Skip if not hungry', cal: '', type: 'mp-empty' },
+        { food: '1–3 Clementines', cal: '35–105 cal', type: 'mp-treat' },
+      ]
+    },
+    {
+      label: 'Lunch',
+      cells: [
+        { food: 'Ground Beef Rice Bowl', cal: '~520 cal', type: 'mp-protein' },
+        { food: 'Chipotle Chicken + Rice', cal: '~510 cal', type: 'mp-protein' },
+        { food: 'Steak + Potato', cal: '~530 cal', type: 'mp-protein' },
+        { food: 'Tuna Bowl', cal: '~280 cal', type: 'mp-protein' },
+        { food: 'Deli Wrap + Clear Whey', cal: '~400 cal', type: 'mp-protein' },
+        { food: 'Ground Beef Pasta', cal: '~530 cal', type: 'mp-protein' },
+        { food: 'Chipotle Chicken + Rice', cal: '~510 cal', type: 'mp-protein' },
+      ]
+    },
+    {
+      label: 'Pre-Workout',
+      cells: [
+        { food: 'Ghost Clear Whey', cal: '~90 cal', type: 'mp-supp' },
+        { food: 'Ghost Clear Whey', cal: '~90 cal', type: 'mp-supp' },
+        { food: 'Ghost Clear Whey', cal: '~90 cal', type: 'mp-supp' },
+        { food: 'Rest Day — Skip', cal: '', type: 'mp-empty' },
+        { food: 'Ghost Clear Whey', cal: '~90 cal', type: 'mp-supp' },
+        { food: 'Ghost Clear Whey', cal: '~90 cal', type: 'mp-supp' },
+        { food: 'Rest Day — Skip', cal: '', type: 'mp-empty' },
+      ]
+    },
+    {
+      label: 'Creatine 5g',
+      cells: days.map(() => ({ food: '5g Creatine in water', cal: '0 cal', type: 'mp-supp' }))
+    },
+    {
+      label: 'Dinner',
+      cells: [
+        { food: 'Shrimp & Potato', cal: '~480 cal', type: 'mp-protein' },
+        { food: 'Ground Beef Pasta', cal: '~500 cal', type: 'mp-protein' },
+        { food: 'Tuna & Pasta', cal: '~400 cal', type: 'mp-protein' },
+        { food: 'Chipotle Chicken + Rice', cal: '~490 cal', type: 'mp-protein' },
+        { food: 'Nugget Night + Potato', cal: '~480 cal', type: 'mp-protein' },
+        { food: 'Steak + Potato', cal: '~500 cal', type: 'mp-protein' },
+        { food: 'Shrimp & Pasta', cal: '~460 cal', type: 'mp-protein' },
+      ]
+    },
+    {
+      label: 'Evening',
+      cells: [
+        { food: 'Fairlife Shake', cal: '~150 cal', type: 'mp-treat' },
+        { food: '½ Cup Ice Cream', cal: '~150 cal', type: 'mp-treat' },
+        { food: 'Skip', cal: '', type: 'mp-empty' },
+        { food: '2 Cookies', cal: '~150 cal', type: 'mp-treat' },
+        { food: 'Fairlife Shake', cal: '~150 cal', type: 'mp-treat' },
+        { food: '½ Cup Ice Cream', cal: '~150 cal', type: 'mp-treat' },
+        { food: 'Skip', cal: '', type: 'mp-empty' },
+      ]
+    },
+  ];
+
+  const grid = document.getElementById('mpGrid');
+  if (grid) {
+    // Header row
+    const emptyHeader = document.createElement('div');
+    emptyHeader.className = 'mp-header';
+    emptyHeader.textContent = '';
+    grid.appendChild(emptyHeader);
+
+    days.forEach((day, i) => {
+      const h = document.createElement('div');
+      h.className = 'mp-header' + (i === todayIdx ? ' today' : '');
+      h.textContent = day;
+      grid.appendChild(h);
+    });
+
+    // Data rows
+    rows.forEach(row => {
+      const label = document.createElement('div');
+      label.className = 'mp-row-label';
+      label.textContent = row.label;
+      grid.appendChild(label);
+
+      row.cells.forEach(cell => {
+        const c = document.createElement('div');
+        c.className = 'mp-cell ' + cell.type;
+        c.innerHTML = `<div class="mp-food">${cell.food}</div>${cell.cal ? `<div class="mp-cal">${cell.cal}</div>` : ''}`;
+        grid.appendChild(c);
+      });
+    });
+  }
+
+
+  const toggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+
+  // Active nav on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const links = document.querySelectorAll('.nav-links a');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const link = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+        if (link) link.classList.add('active');
+      }
+    });
+  }, { threshold: 0.3 });
+  sections.forEach(s => observer.observe(s));
+
+  // Animate progress bar on load
+  window.addEventListener('load', () => {
+    const start = 240.8, goal = 215, total = start - goal;
+    // Progress = 0 at start (update manually as weight drops)
+    const current = 240.8;
+    const lost = start - current;
+    const pct = Math.max(0, Math.min(100, (lost / total) * 100));
+    setTimeout(() => {
+      document.getElementById('progressBar').style.width = pct + '%';
+      document.getElementById('progressPct').textContent = pct.toFixed(1) + '% complete';
+    }, 300);
+  });
+</script>
+</body>
+</html>
